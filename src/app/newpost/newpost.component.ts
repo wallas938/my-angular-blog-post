@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router'
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { PostsService } from '../services/posts.service';
 
 @Component({
@@ -10,13 +11,15 @@ import { PostsService } from '../services/posts.service';
 })
 export class NewpostComponent {
 
-  newPostForm = new FormGroup({
-    title: new FormControl(''),
-    comment: new FormControl('')
+  newPostForm = this.formBuilder.group({
+    title: ['', Validators.required],
+    comment: ['', Validators.required]
   })
 
   constructor(private router: Router,
-              private postsService: PostsService) { }
+              private postsService: PostsService,
+              private formBuilder: FormBuilder
+              ) { }
 
 
   onSubmit() {
