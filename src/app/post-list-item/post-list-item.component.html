@@ -1,0 +1,13 @@
+<li [ngClass]="{  'list-group': true,
+                  'list-group-item list-group-item-success': status === 'isOutNumbering',
+                  'list-group-item list-group-item-warning': status === 'isEqual',
+                  'list-group-item list-group-item-danger': status === 'isOutNumbered' }">
+  <p id="date"><i>Dernière mise a jour: </i> {{ postDate | date: 'short' }}</p>
+  <h2>{{ title }}</h2>
+  <p>{{ comment }}</p>
+  <div class="boutons">
+    <button type="button" class="btn btn-success" (click)="onLikeIncrement(id)">Love it !!! <span>{{ likeIts }}</span></button>
+    <button type="button" class="btn btn-danger" (click)="onDislikeIncrement(id)">Don't love it ! <span>{{ dislikeIts }}</span></button>
+    <button type="button" class="btn btn-warning" (click)="onRemove(id)">Supprimer commentaire</button>
+  </div>
+  </li>

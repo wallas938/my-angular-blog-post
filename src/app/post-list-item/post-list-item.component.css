@@ -1,0 +1,17 @@
+li {
+    padding-left: 10px;
+    list-style: none;
+    border-radius: 5px;
+    width: 70%;
+}
+
+#date {
+    float: right;
+}
+
+.boutons {
+    width: 350px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
