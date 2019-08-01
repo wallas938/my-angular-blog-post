@@ -34,6 +34,7 @@ export class PostsService {
 
   addNewPost(data: any) {
     this.posts = [...this.posts, data]
+    this.postsEmitter()
   }
 
   likeIncrementer(id: string) {

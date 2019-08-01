@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router'
 import { FormGroup, FormControl } from '@angular/forms';
 import { PostsService } from '../services/posts.service';
@@ -8,7 +8,7 @@ import { PostsService } from '../services/posts.service';
   templateUrl: './newpost.component.html',
   styleUrls: ['./newpost.component.css']
 })
-export class NewpostComponent implements OnInit {
+export class NewpostComponent {
 
   newPostForm = new FormGroup({
     title: new FormControl(''),
@@ -18,8 +18,6 @@ export class NewpostComponent implements OnInit {
   constructor(private router: Router,
               private postsService: PostsService) { }
 
-  ngOnInit() {
-  }
 
   onSubmit() {
     const data = this.newPostForm.value

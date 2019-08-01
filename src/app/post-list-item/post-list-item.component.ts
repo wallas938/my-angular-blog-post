@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { PostsService } from '../services/posts.service';
 
@@ -8,7 +8,7 @@ import { PostsService } from '../services/posts.service';
   styleUrls: ['./post-list-item.component.css']
 })
 
-export class PostListItemComponent implements OnInit {
+export class PostListItemComponent {
   @Input() status: string
   @Input() id: string
   @Input() title: string
@@ -17,9 +17,6 @@ export class PostListItemComponent implements OnInit {
   @Input() dislikeIts: number
   
   constructor(private postsService: PostsService) { 
-  }
-
-  ngOnInit() {
   }
 
   onLikeIncrement(id: string) {

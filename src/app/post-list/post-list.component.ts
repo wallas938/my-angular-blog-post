@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, OnDestroy } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PostsService } from '../services/posts.service';
@@ -8,7 +8,7 @@ import { PostsService } from '../services/posts.service';
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css']
 })
-export class PostListComponent implements OnInit {
+export class PostListComponent implements OnInit, OnDestroy {
 
   posts: any[] = []
 
@@ -22,8 +22,12 @@ export class PostListComponent implements OnInit {
         this.posts = posts
       }
     )
-
     this.postService.postsEmitter()
+    console.log('changement !!!')
+  }
+
+  ngOnDestroy() {
+    this.postsSubscription.unsubscribe()
   }
 
 }
